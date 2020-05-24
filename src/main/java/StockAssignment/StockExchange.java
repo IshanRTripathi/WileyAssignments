@@ -9,6 +9,7 @@ public class StockExchange {
 
     public static void main(String[] args) {
         sharePrices= new ArrayList<>();
+        stockList= new ArrayList<>();
         generateSharePrices(sharePrices);
         double averageSharePrice= getAverageSharePrice(sharePrices);
         int minimumSharePrice= getMinimumSharePrice(sharePrices);
@@ -39,7 +40,17 @@ public class StockExchange {
         {
             Stock stock= new Stock(stockName);
             stock.generateOrders();
+            System.out.println("Stock "+stockName+" generated !");
             stockList.add(stock);
+        }
+
+        for(Stock stock: stockList)
+        {
+            System.out.println(stock);
+            StockMatcher.matchBuyersAndSellers(stock);
+            StockMatcher.getMinimumOrderPricePerStock();
+            StockMatcher.getMaximumOrderPricePerStock();
+            StockMatcher.getAverageOrderPricePerStock();
         }
     }
 

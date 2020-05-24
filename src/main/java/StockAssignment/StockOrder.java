@@ -9,19 +9,8 @@ public class StockOrder {
         this.numberOfShares = numberOfShares;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getNumberOfShares() {
-        return numberOfShares;
-    }
-
-    public void setNumberOfShares(int numberOfShares) {
-        this.numberOfShares = numberOfShares;
+    @Override
+    public String toString() {
+        return "{ price=" + price + " numberOfShares=" + numberOfShares + " }";
     }
 }

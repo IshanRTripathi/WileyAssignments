@@ -1,5 +1,6 @@
 package StockAssignment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Stock {
@@ -21,10 +22,28 @@ public class Stock {
 
     void generateOrders()
     {
+        List<StockOrder> buyOrders= new ArrayList<>();
+        List<StockOrder> sellOrders= new ArrayList<>();
         for(int i=0; i<50; i++)
         {
-            this.buyOrders.add(new StockOrder((int)(Math.random()*100), (int)(Math.random()*50)));
-            this.sellOrders.add(new StockOrder((int)(Math.random()*100), (int)(Math.random()*50)));
+            buyOrders.add(new StockOrder((int)(Math.random()*100)+51, (int)(Math.random()*50)));
+            sellOrders.add(new StockOrder((int)(Math.random()*100)+41, (int)(Math.random()*50)));
         }
+        this.buyOrders=buyOrders;
+        this.sellOrders= sellOrders;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result= new StringBuilder();
+        result.append("\n\nStock: ").append(stockName);
+        result.append("\n\tBuy Orders: ");
+        for(StockOrder stockOrder: buyOrders)
+            result.append(stockOrder).append("\t");
+        result.append("\n\tSell Orders: ");
+        for(StockOrder stockOrder: sellOrders)
+            result.append(stockOrder).append("\t");
+
+        return result.toString();
     }
 }

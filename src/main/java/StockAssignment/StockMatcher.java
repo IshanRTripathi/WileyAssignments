@@ -19,12 +19,54 @@ prioritize trades in a way that benefits buyers and sellers equally so as to max
 the exchange.
 */
 public class StockMatcher {
-    void matchBuyersAndSellers(Stock stock){
-        List<StockOrder> buyOrders= stock.getBuyOrders();
-        List<StockOrder> sellOrders= stock.getSellOrders();
-
+    static List<StockOrder> buyOrders;
+    static List<StockOrder> sellOrders;
+    static  void matchBuyersAndSellers(Stock stock){
+        buyOrders= stock.getBuyOrders();
+        sellOrders= stock.getSellOrders();
     }
-    void getMinimumOrderPricePerStock(){}
-    void getMaximumOrderPricePerStock(){}
-    void getAverageOrderPricePerStock(){}
+    static void getMinimumOrderPricePerStock(){
+        int minBuy=Integer.MAX_VALUE, minSell=Integer.MAX_VALUE;
+
+        for(StockOrder order: buyOrders)
+        {
+            minBuy= Math.min(minBuy, order.price);
+        }
+        for(StockOrder order: sellOrders)
+        {
+            minSell= Math.min(minSell, order.price);
+        }
+        System.out.println("Minimum buy order @"+minBuy+
+                "\tMinimum sell order @:"+minSell);
+    }
+    static void getMaximumOrderPricePerStock(){
+        int maxBuy=0, maxSell=0;
+
+        for(StockOrder order: buyOrders)
+        {
+            maxBuy= Math.max(maxBuy, order.price);
+        }
+        for(StockOrder order: sellOrders)
+        {
+            maxSell= Math.max(maxSell, order.price);
+        }
+        System.out.println("Maximum buy order @"+maxBuy+
+                "\tMaximum sell order @:"+maxSell);
+    }
+    static void getAverageOrderPricePerStock(){
+        double avgBuy=0, avgSell=0;
+
+        for(StockOrder order: buyOrders)
+        {
+            avgBuy+= order.price;
+        }
+        for(StockOrder order: sellOrders)
+        {
+            avgSell+= order.price;
+        }
+        avgBuy= (double) (avgBuy/buyOrders.size());
+        avgSell= (double) (avgSell/sellOrders.size());
+        System.out.println("Average buy order @"+avgBuy+
+                "\tAverage sell order @:"+avgSell);
+    }
 }
