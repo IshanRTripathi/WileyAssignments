@@ -9,6 +9,92 @@ public class EmployeeManagement {
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Employee> employeeList = new ArrayList<>();
 
+    public static void main(String[] args) {
+        while (true)
+        {
+            getInputFromUser();
+        }
+    }
+
+    private static void getInputFromUser() {
+        System.out.println("Hello Ishan!,\nWhat do you want to do ?"+
+                "\n1. Register an employee"+
+                "\n2. Remove an employee"+
+                "\n3. Update details of an employee"+
+                "\n4. Search an employee"+
+                "\n5. Get list of employees");
+        int input= sc.nextInt();
+        if(input>5 || input<1)
+            return;
+        switch (input)
+        {
+            case 1:
+                registerEmployee();
+                break;
+            case 2:
+                deleteEmployee();
+                break;
+            case 3:
+                updateDetails();
+                break;
+            case 4:
+                searchEmployee();
+                break;
+            case 5:
+                printEmployees();
+                break;
+            default:
+                System.out.println("Enter correct option !");
+        }
+    }
+
+    private static void searchEmployee() {
+        System.out.println("1. Search by name"+
+                "\n2. Search by ID"+
+                "\n3. Search by department"+
+                "\nEnter the corresponding number: ");
+        int input= sc.nextInt();
+        switch (input)
+        {
+            case 1:
+                searchName();
+                break;
+            case 2:
+                searchId();
+                break;
+            case 3:
+                searchByDepartment();
+                break;
+            default:
+                System.out.println("Enter correct input! ");
+        }
+    }
+
+    private static void updateDetails() {
+        System.out.println("1. Update name"+
+                "\n2. Update birth"+
+                "\n3. Update department"+
+                "\n4. Update salary"+
+                "\nEnter the corresponding number: ");
+        int input= sc.nextInt();
+        switch (input)
+        {
+            case 1:
+                updateName();
+                break;
+            case 2:
+                updateBirth();
+                break;
+            case 3:
+                updateDepartment();
+                break;
+            case 4:
+                updateSalary();
+                break;
+            default:
+                System.out.println("Enter correct input! ");
+        }
+    }
 
     public static void registerEmployee() {
         System.out.println("First name of new employee?");
