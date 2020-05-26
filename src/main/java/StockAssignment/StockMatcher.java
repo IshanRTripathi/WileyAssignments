@@ -24,6 +24,19 @@ public class StockMatcher {
     static  void matchBuyersAndSellers(Stock stock){
         buyOrders= stock.getBuyOrders();
         sellOrders= stock.getSellOrders();
+        for(int i=0, j=0; i<buyOrders.size() || j<sellOrders.size(); )
+        {
+            StockOrder buy= buyOrders.get(i);
+            StockOrder sell= sellOrders.get(j);
+
+            int buyAmount= buy.price*buy.numberOfShares;
+            int sellAmount= sell.price*sell.numberOfShares;
+            while(buyAmount>0)
+            {
+                System.out.println("Buying ");
+                buyAmount%= sellAmount;
+            }
+        }
     }
     static void getMinimumOrderPricePerStock(){
         int minBuy=Integer.MAX_VALUE, minSell=Integer.MAX_VALUE;

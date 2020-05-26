@@ -7,18 +7,20 @@ public class Person {
                     +-----------+
                     | Throwable |
                     +-----------+
-                    /         \
-                   /           \
-          +-------+          +-----------+
-          | Error |          | Exception |
-          +-------+          +-----------+
-            /  |  \           / |        \
-         \________/      \______/         \
-                             +------------------+
-    unchecked     checked    | RuntimeException |
-                             +------------------+
-                              /   |    |      \
-                             \_________________/
+                    /            \
+                   /              \
+          +-------+             +-----------+
+          | Error |             | Exception |
+          +-------+             +-----------+
+               |                  |         \
+               |                  |          \
+               |                  |         +------------------+
+          unchecked         checked         | RuntimeException |
+                             ex- IOE        +------------------+
+                                                    \
+                                                     \
+                                                   unchecked ex- Arithmetic
 
-                               unchecked
+encapsulation => inheritance => abstraction => polymorphism
 * */
+

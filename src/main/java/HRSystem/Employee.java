@@ -30,7 +30,7 @@ public abstract class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" + "salary=" + salary + ", id=" + id + ", birthday=" + birthday + ", gender=" + gender + ", department=" + department + ", numberOfEmployees=" + numberOfEmployees + ", name=" + name + '}';
+        return "Employee{" +", name=" + name + "salary=" + salary + ", id=" + id + ", birthday=" + birthday + ", gender=" + gender + ", department=" + department + ", numberOfEmployees=" + numberOfEmployees + ", bonus= "+getBonus() + '}';
     }
 
     public String getName() {

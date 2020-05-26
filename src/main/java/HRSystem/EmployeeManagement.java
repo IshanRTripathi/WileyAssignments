@@ -10,13 +10,14 @@ public class EmployeeManagement {
     static ArrayList<Employee> employeeList = new ArrayList<>();
 
     public static void main(String[] args) {
-        while (true)
+        boolean result= true;
+        while (result)
         {
-            getInputFromUser();
+            result= getInputFromUser();
         }
     }
 
-    private static void getInputFromUser() {
+    private static boolean getInputFromUser() {
         System.out.println("Hello Ishan!,\nWhat do you want to do ?"+
                 "\n1. Register an employee"+
                 "\n2. Remove an employee"+
@@ -24,8 +25,6 @@ public class EmployeeManagement {
                 "\n4. Search an employee"+
                 "\n5. Get list of employees");
         int input= sc.nextInt();
-        if(input>5 || input<1)
-            return;
         switch (input)
         {
             case 1:
@@ -45,7 +44,9 @@ public class EmployeeManagement {
                 break;
             default:
                 System.out.println("Enter correct option !");
+                return false;
         }
+        return true;
     }
 
     private static void searchEmployee() {
