@@ -4,11 +4,34 @@ package MultithreadingAssignment;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class BigFileReader {
     static Hashtable<String, Integer> hashtable;
     public static void main(String[] args)
+    {
+        System.out.println("Enter\n1. Brute Force\n2. Multithreading\n3. Optimised Multithreading");
+        int option= new Scanner(System.in).nextInt();
+        switch (option)
+        {
+            case 1:
+                doBruteForce();
+                break;
+            case 2:
+                doMultiThreading();
+                break;
+            default:
+                System.out.println("Enter valid option");
+        }
+    }
+
+    private static void doBruteForce() {
+        ReadTask task= new ReadTask("C:\\Users\\itripathi\\Desktop\\FileReader\\1.txt");
+        task.runTask(0);
+    }
+
+    static void doMultiThreading()
     {
         List<Integer> x = new ArrayList<>();
         for(int i = 0; i <= 9; i++)

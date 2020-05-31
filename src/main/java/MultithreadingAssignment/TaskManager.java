@@ -8,7 +8,6 @@ public class TaskManager
     private final List<ReadTask> tasks;
     Hashtable<String, Integer> hashtable;
 
-
     public TaskManager()
     {
         this.tasks = new Vector<>();
